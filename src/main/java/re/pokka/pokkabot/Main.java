@@ -13,6 +13,7 @@ import net.dv8tion.jda.JDABuilder;
  * @author Pokka
  */
 public class Main {
+    final static String TOKEN = "";
     public static void main(String[] args)
     {
         try
