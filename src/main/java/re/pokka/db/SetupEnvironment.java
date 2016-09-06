@@ -66,6 +66,7 @@ public class SetupEnvironment {
         
       
         membersDB = crtEnv.openDatabase(null, "member", crtDbConfig);
+        sanctionDB = crtEnv.openDatabase(null, "sanction", crtDbConfig);
         //create class catalog
         
         
@@ -84,6 +85,11 @@ public class SetupEnvironment {
             Database getMembersDB(){
                 return membersDB;
             }
+            
+    public Database getSanctionDB()
+    {
+        return sanctionDB;
+    }
  
         
     
@@ -103,7 +109,7 @@ public class SetupEnvironment {
             try {
                 
                membersDB.close();
-                
+                sanctionDB.close();
             } catch(DatabaseException dbe) {
                 Logger.getLogger(SetupEnvironment.class.getName()).log(Level.SEVERE, "Error on closing database "  + " : " + dbe);     
               }
@@ -119,7 +125,7 @@ public class SetupEnvironment {
         //Now create and open our databases
         
         membersDB = crtEnv.openDatabase(null, "members", crtDbConfig);
-        
+        sanctionDB = crtEnv.openDatabase(null, "sanction", crtDbConfig);
         //Open the class catalog db. this is used for optimize class serialization
         //create class catalog
                 
@@ -132,6 +138,7 @@ public class SetupEnvironment {
     private Environment crtEnv;
     
     private Database                                                            membersDB;
+    private Database                                                            sanctionDB;
     
             
     private static SetupEnvironment                                             m_instance;

@@ -32,7 +32,7 @@ public class Boobs {
         
         boolean master = user.getId().equals("106672188513353728");
         
-        File dir = new File("C:\\Users\\Pokka\\Documents\\NetBeansProjects\\PokkaBot\\joke\\boobs");
+        File dir = new File("C:\\Users\\Pokka\\Documents\\NetBeansProjects\\joke\\boobs");
         File[] allBoobs = dir.listFiles();
         int row = 0;
         int randomBoobs;

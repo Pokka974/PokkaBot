@@ -10,6 +10,9 @@ import com.google.code.chatterbotapi.ChatterBotFactory;
 import com.google.code.chatterbotapi.ChatterBotSession;
 import com.google.code.chatterbotapi.ChatterBotType;
 import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -24,6 +27,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 import re.pokka.db.MemberManager;
+import re.pokka.db.SanctionManager;
 
 /**
  *
@@ -38,6 +42,7 @@ public class EventManager extends ListenerAdapter  {
     User botuser;
     public static User batonPlayer, bombPlayer;
     public static boolean ia = true;
+    public static Map<String, Guild> guildList = new HashMap<>();
     
     @Override
     public void onReady(ReadyEvent event)
@@ -47,7 +52,15 @@ public class EventManager extends ListenerAdapter  {
         //List<User> allUserJapancult = new ArrayList<User>(); 
         botuser = event.getJDA().getSelfInfo();
         
-       
+        List<Guild> allGuild = event.getJDA().getGuilds();
+        
+        for(Guild g : allGuild)
+        {
+            guildList.put(g.getName(), g);
+        }
+        
+//        Sanction sanction = new Sanction(1, "106808974040444928", "220154861298122752", "Troll", "KICK", "05/09/2016 - 10:54");
+//        SanctionManager.get_Instance().putSanction(sanction.getId()+"", sanction);
 //        Guild otaculs = botuser.getJDA().getGuildById("106689811900870656");
 //        Guild japancult = botuser.getJDA().getGuildById("202631064999428098");
 //        
@@ -230,7 +243,9 @@ public class EventManager extends ListenerAdapter  {
         }
         
         try {
+            
             Command command = new Command(cmd, args, event);
+            
         } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -242,7 +257,7 @@ public class EventManager extends ListenerAdapter  {
         
         /* Si le bot est Mentionné */
         
-                if (event.getMessage().isMentioned(botuser) && ia) 
+                if (event.getMessage().isMentioned(botuser) && ia && !event.getAuthor().isBot()) 
                 {
                     String s = event.getMessage().getContent();
                     System.out.println(s);

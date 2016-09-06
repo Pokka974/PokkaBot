@@ -7,9 +7,13 @@ package re.pokka.pokkabot;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
+import org.apache.commons.logging.Log;
 import re.pokka.command.BatonScore;
 import re.pokka.command.Boobs;
+import re.pokka.command.KeyToSuccess;
 import re.pokka.command.Legs;
+import re.pokka.command.Logs;
+import re.pokka.command.Moderation;
 import re.pokka.command.Nappe;
 import re.pokka.command.Ping;
 import re.pokka.command.Rate;
@@ -37,6 +41,53 @@ public class Command {
     {
         switch(cmd)
         {
+//            case "!mute":
+//                
+//                Moderation mute = new Moderation(cmd, args, event);
+//                mute.muteSomeone();
+//                System.out.println("\tCommand " + cmd + " launched !"); 
+//                break;
+            
+            case "!getlogbyid":
+                
+                Logs logs4 = new Logs(cmd, args, event);
+                logs4.getSanctionById();
+                System.out.println("\tCommand " + cmd + " launched !");
+                
+                break;
+                
+            case "!deletelog":
+                
+                Logs logs3 = new Logs(cmd, args, event);
+                logs3.deleteLog();
+                System.out.println("\tCommand " + cmd + " launched !");
+                
+                break;
+                
+            case "!getlog":
+                
+                Logs logs2 = new Logs(cmd, args, event);
+                logs2.getSanction();
+                System.out.println("\tCommand " + cmd + " launched !");
+                
+                break;
+                
+            case "!addlog":
+                
+                Logs logs = new Logs(cmd, args, event);
+                logs.addNewLog();
+                System.out.println("\tCommand " + cmd + " launched !");
+                
+                break;
+                
+            case "!keytosuccess":
+                
+                KeyToSuccess keyToSuccess = new KeyToSuccess(cmd, args, event);
+                keyToSuccess.execute();
+                System.out.println("\tCommand " + cmd + " launched !");
+                
+                break;
+                
             case "!ping":
                 
                 Ping ping = new Ping(cmd, event);
