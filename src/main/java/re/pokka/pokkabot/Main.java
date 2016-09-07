@@ -5,9 +5,7 @@
  */
 package re.pokka.pokkabot;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 import javax.security.auth.login.LoginException;
 import net.dv8tion.jda.JDABuilder;
 
@@ -16,13 +14,10 @@ import net.dv8tion.jda.JDABuilder;
  * @author Pokka
  */
 public class Main {
-    public static Scanner scanner;
-    static String TOKEN = "";
+    static String TOKEN = "MjA3ODYwNzE1NDM0OTM0Mjcy.CrFdLw.oBalp49CxhbTyGT5xezCaeKM1H8";
     public static void main(String[] args) throws FileNotFoundException
     {
-        scanner = new Scanner(new File("C:\\Users\\Pokka\\Documents\\NetBeansProjects\\PokkaBot\\TOKEN.txt"));
         
-        TOKEN = scanner.nextLine();
         
         try
         {
