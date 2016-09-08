@@ -31,7 +31,7 @@ public class SetupEnvironment {
         m_instance = this;
         try { 
         //open and create the db if not already exist, in read and write mode
-        setup(new File("C:\\Users\\Pokka\\Documents\\NetBeansProjects\\PokkaBot\\DB"), false);
+        setup(new File("~\\DB"), false);
         
         } catch (Exception e) {
             Logger.getLogger(SetupEnvironment.class.getName()).log(Level.SEVERE, "Error accessing database path "  + " : " + e);     
