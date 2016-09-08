@@ -193,7 +193,7 @@ public class EventManager extends ListenerAdapter  {
         if(!event.getAuthor().isBot())
         {
             randomNumber = random(1, 300);
-            System.out.println(event.getAuthorName()+" > "+ event.getMessage().getContent() + " > " + randomNumber +"\n");
+            //System.out.println(event.getAuthorName()+" > "+ event.getMessage().getContent() + " > " + randomNumber +"\n");
             
             if(randomNumber == 100)
             {

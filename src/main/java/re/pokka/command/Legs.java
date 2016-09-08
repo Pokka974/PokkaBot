@@ -34,7 +34,7 @@ public class Legs {
         MessageChannel chan = event.getChannel();
         boolean master = user.getId().equals("106672188513353728");
         
-        File dir = new File("C:\\Users\\Pokka\\Documents\\NetBeansProjects\\joke\\legs");
+        File dir = new File("/home/pokka/legs");
         File[] allLegs = dir.listFiles();
         int row = 0;
         int randomLegs;
