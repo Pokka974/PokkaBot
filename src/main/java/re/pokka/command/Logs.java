@@ -9,7 +9,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -20,7 +19,6 @@ import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
 import re.pokka.db.SanctionManager;
-import re.pokka.pokkabot.Members;
 import re.pokka.pokkabot.Sanction;
 
 /**
@@ -29,11 +27,14 @@ import re.pokka.pokkabot.Sanction;
  */
 public class Logs {
     String[] modoID = {
-        "171003357299867649",
-        "207592594794872833",
-        "106808974040444928",
-        "106672188513353728",
-        "146448493039452161"
+        "171003357299867649",   // Groove
+        "207592594794872833",   //Sekky
+        "106808974040444928",   // Dream
+        "106672188513353728",   // Pokka
+        "146448493039452161",   // Roxy
+        "204944386247753728",   // Galdriff
+        "169417452797558784",   //Inobak
+        "141962573900808193"    //Titch
     };
     
     String cmd, args;
@@ -112,7 +113,7 @@ public class Logs {
                             "**Type** : " + typeOfSanction.toUpperCase() +"\n"
                                 +"\n**Utilisateur** : " + user.getAsMention() + " **ID** : " + user.getId()
                                     + "\n**Raison** : " + reason 
-                                        + "\n**Staff concerné** : " + event.getAuthor().getAsMention()
+                                        + "\n**Staff concerné** : " + event.getAuthor().getUsername()
                                             + "\n**Date** : " + dateFormat.format(date));
                 
                 timeForDel(event.getMessage());

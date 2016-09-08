@@ -38,13 +38,11 @@ public class Moderation {
         userListFromThisGuild = currentGuild.getUsers();
         gm = new GuildManager(currentGuild);
         
-        for(User u : userListFromThisGuild)
-        {
-            if(u.getId().equals(args))
-            {
-                gm.mute(u);
-                chan.sendMessage(u.getUsername() + " a été Mute");
-            }
-        }
+        userListFromThisGuild.stream().filter((u) -> (u.getId().equals(args))).map((u) -> {
+            gm.mute(u);
+            return u;
+        }).forEach((u) -> {
+            chan.sendMessage(u.getUsername() + " a été Mute");
+        });
     }
 }
